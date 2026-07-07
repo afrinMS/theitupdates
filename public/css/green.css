@@ -1,0 +1,20 @@
+.theme-menu-wrapper .top-header.grey-bg .contact-widget li.call a:hover,.theme-menu-wrapper .top-header.grey-bg .header-right-content .social-icon li a:hover,
+#mega-menu-wrapper .nav>li.dropdown-holder .sub-menu li:hover>a,#theme-main-banner.banner-three .camera_caption .theme-button-fix i,.contact-management-section .single-box h5:hover a,
+.contact-management-section.style-two .single-box .view-more i,.contact-management-section.style-two .single-box .view-more:hover,.solution-section .single-block:hover h5 a,
+.pricing-table .pricing-tab-switch .nav-tabs li a,.pricing-table .pricing-tab-switch h3 span,.pricing-table .pricing-tab-switch .all-price-details:hover,
+.pricing-table .single-figure .package-feature ul li:before,.pricing-table .single-figure .get-package,.theme-counter .single-box .number,.theme-footer .footer-top-content .footer-logo p a,
+.theme-footer .footer-top-content .footer-logo .call a:hover,.theme-footer.text-color-dark .footer-top-content .footer-list-item ul li a:hover {
+	color: #cca541;
+}
+
+.theme-menu-wrapper .top-header .contact-widget li.help-text a:before,.bootstrap-select.btn-group .dropdown-menu li.selected a,.bootstrap-select.btn-group .dropdown-menu li:hover a,
+#mega-menu-wrapper .nav>li>a:before,header .menu-wrapper .header-right-widget .search-option form button,.skew-content-section .text-box,.testimonial-style-two .owl-theme .owl-dots .owl-dot.active span,
+.testimonial-style-two .video-playback .play-button:hover,.pricing-table .pricing-tab-switch .nav-tabs > li.active > a, .pricing-table .pricing-tab-switch .nav-tabs > li.active > a:hover,
+.pricing-table .pricing-tab-switch .nav-tabs > li.active > a:focus,.pricing-table .single-figure .get-package:hover,.contact-us-section .our-map .title h2 span:before,
+.contact-us-section .contact-us form.form-two input[type="submit"],.theme-button-one,#mega-menu-wrapper .navbar-toggle .icon-bar {
+	background: #cca541;
+}
+.testimonial-style-two .main-slider-wrapper .testimonial-text .wrapper .name,.help-banner p {border-left-color:#cca541; }
+.pricing-table .pricing-tab-switch .nav-tabs li a,.pricing-table .single-figure .get-package {border-color: #cca541;}
+/*------------- Hover -----------*/
+.hvr-bounce-to-right:before {background: #cca541;}

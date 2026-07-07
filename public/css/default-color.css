@@ -1,0 +1,108 @@
+/*----------------------- Theme Default color file  -------------------*/
+.theme-menu-wrapper .top-header .contact-widget li.call a:hover,.theme-button-two:hover,.skew-content-section .image-box .play-button,
+.theme-menu-wrapper .top-header .header-right-content .social-icon li a:hover,.about-short-feature .play-button,
+#mega-menu-wrapper .nav>li.dropdown-holder .sub-menu li:hover>a,.our-feature .single-feature-box h5:hover a,
+.solution-section .single-block:hover h5 a,.our-work .gallery-content-wrapper .single-block .overlay a,
+.theme-counter .single-box .number,.help-banner .phone:hover,.theme-footer .footer-top-content .footer-logo p a,
+/*---inner page */
+.theme-inner-banner ul li a:hover,.theme-footer.text-color-dark.white-bg .footer-top-content .footer-list-item ul li a:hover,
+.gallery-wrapper .view-more,.page-pagination li a,.single-blog-post:hover h2 a,.single-blog-post .read-more,.single-blog-post .post-info li a:hover,
+.blog-sidebar .sidebar-search button,.blog-sidebar .blog-list ul li a i,.blog-sidebar .blog-list ul li a:hover,.blog-sidebar .sidebar-latest-post li:hover a,
+.blog-details .tag-option ul.float-left li a,.shop-sidebar .sidebar-shop-categories ul li a:hover,.shop-sidebar .shop-popular-product ul li .name h6 a:hover,
+.shop-product .single-product:hover .info h6 a,.faq .faq-panel .panel-group .panel-heading.active-panel a:before,.testimonial-section .title,
+.team-section .title,.team-style-one .single-member:hover .text h5,.team-style-one .single-member .text.bg-white ul li a:hover,
+.service-style-four .single-service-box:hover .text h5 a {
+  color: #cca541;
+}
+.theme-button-one,.theme-menu-wrapper .top-header .contact-widget li.help-text a:before,.theme-title-one:before,
+.bootstrap-select.btn-group .dropdown-menu li.selected a,.skew-content-section .image-box .play-button:hover,
+.bootstrap-select.btn-group .dropdown-menu li:hover a,.banner-form .container form button,
+header .menu-wrapper .header-right-widget .search-option form button,#mega-menu-wrapper .nav>li>a:before,
+.testimonial-style-one .testimonial-slider-one .client-caption-box:before,.contact-us-section .our-map .title h2 span:before,
+.theme-footer .bottom-footer:before,
+/*----- Inner page ----*/
+.solution-section.solid-bg,.service-details .social-icon li a:hover,.service-details .virtual-sales h6:before,.service-details .virtual-sales ul li:before,
+.reply-comment form button,.mixitUp-menu li:before,.gallery-wrapper .view-more:hover,.gallery-details .main-content-wrapper .project-information h5:before,
+.gallery-details .main-content-wrapper .project-information ul:before,.page-pagination li a:hover,.blog-sidebar .sidebar-email-update button,
+.shop-product .single-product:hover .info>a,.shop-pagination li a:hover,.shop-pagination li.active a,.shop-details .single-product-details .product-order-details .clearfix ul li button,
+.shop-details .single-product-details .product-order-details .clearfix a:hover,.shop-sidebar .search button:hover,.testimonial-style-two .grey-bg .owl-theme .owl-dots .owl-dot.active span,
+.team-style-one .single-member .image .tag,.team-style-one .single-member .text ul li a:hover,.team-style-two .single-member:hover .text,.team-style-one .single-member:hover .text.bg-white,
+#mega-menu-wrapper .navbar-toggle .icon-bar {
+  background: #cca541;
+}
+.solution-section .theme-title-two:before,.gallery-wrapper .view-more:hover,.page-pagination li a:hover {border-color:#dd8c52; }
+.banner-form .container form:before,#theme-main-banner.banner-one .camera_caption .theme-button-one,.about-short-feature .play-button:hover,
+.skew-content-section .text-box,.our-work .gallery-content-wrapper .single-block .overlay a:hover,.contact-us-section .contact-us form input[type="submit"] {
+  background: #683da3;
+}
+.our-feature .single-feature-box i {
+	color: #d6bbfb;
+}
+.about-short-feature .play-button {background: #d6bbfb;}
+.theme-button-two,.single-blog-post .read-more:hover,.team-style-one .single-member .text {border-bottom-color: #cca541;}
+.help-banner p,.testimonial-style-two .main-slider-wrapper .testimonial-text .wrapper .name,.team-style-two .single-member .text {border-left-color:#cca541; }
+.solution-section .bubble.bubble-one {background: #54a472;}
+.solution-section .bubble.bubble-two {background: #84ba3f;}
+.solution-section .opacity.opacity-one {background: linear-gradient(0deg, rgb(143 193 79 / 87%) 50%, rgb(19 137 113 / 87%) 100%);}
+.our-work .gallery-content-wrapper .single-block .overlay {background: linear-gradient( 0deg, rgba(249,119,148,0.7) 0%, rgba(174,117,253,0.7) 100%);}
+.contact-us-section .contact-us .opacity {background: linear-gradient( 110deg, rgba(249,119,148,0.9) 0%, rgba(216,188,255,0.9) 100%);}
+.theme-footer .main-wrapper.grdient-overlay {background: linear-gradient( 180deg, rgba(249,119,148,0.93) 0%, rgba(168,94,252,0.93) 100%);}
+/*------------- Hover -----------*/
+.hvr-bounce-to-right:before {background: #3a1c62;}
+.font-weight-600 {font-weight: 600;}
+.pl-40 {padding-left: 40px;}
+.pr-40 {padding-right: 40px;}
+.mt-30 {
+    margin-top: 30px !important;
+}
+.mt-3 {
+    margin-top: 3px !important;
+}
+.mt-5 {
+    margin-top: 5px !important;
+}
+.mt-10 {
+    margin-top: 10px !important;
+}
+.mb-3 {
+    margin-bottom: 3px !important;
+}
+.mb-5 {
+    margin-bottom: 5px !important;
+}
+.mb-10 {
+    margin-bottom: 10px !important;
+}
+.theme-color {
+    color: #cca541;
+}
+.contact-support {
+  margin-top: 30px;
+  background: #f9f9f9;
+  border-left: 4px solid #cca541;
+  border-radius: 6px;
+  padding: 20px 30px;
+}
+.contact-support h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #333;
+}
+.contact-support h3 i {
+  color: #cca541;
+  margin-right: 10px;
+}
+.contact-support p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.contact-support .theme-button-one {
+  display: inline-block;
+}
+.contact-sec p {
+  color: #666;
+  font-size: 22px;
+  line-height: 1.7;
+}

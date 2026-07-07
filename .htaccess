@@ -1,0 +1,43 @@
+# -----------------------------------------------------------------------
+# Root .htaccess — redirect all traffic to CodeIgniter's public/ folder.
+# This file is required when the project root is uploaded to Hostinger.
+# -----------------------------------------------------------------------
+
+# Block direct access to sensitive files before the rewrite kicks in
+<FilesMatch "^\.env$|^composer\.(json|lock)$|^phpunit\.xml(\.dist)?$|^spark$|^README\.md$|^LICENSE$|^env$|^.*\.(sql|zip|tar|gz|7z|bak|old|md)$|^test-.*\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to entire app/, system/, tests/, writable/ trees
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Force the canonical HTTPS www host before internal routing.
+    RewriteCond %{HTTP_HOST} !^www\.theitupdates\.com$ [NC]
+    RewriteRule ^ https://www.theitupdates.com%{REQUEST_URI} [R=301,L,NE]
+
+    # Force HTTPS when the request is not already secure.
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+    RewriteRule ^ https://www.theitupdates.com%{REQUEST_URI} [R=301,L,NE]
+
+    # Deny access to hidden files (e.g. .env, .git, .htaccess itself)
+    RewriteRule (^|/)\.(?!well-known) - [F,L]
+
+    # Deny direct access to sensitive directories
+    RewriteRule ^(app|system|tests|writable)(/|$) - [F,L]
+
+    # Keep campaign landers on clean URLs (no /public in browser address bar).
+    # Map /lander/<slug> to its index page without external redirect.
+    RewriteRule ^lander/([^/]+)/?$ public/lander/$1/index.php [L]
+
+    # Internally map all other /lander/* paths to /public/lander/*
+    RewriteRule ^(lander/.*)$ public/$1 [L]
+
+    # Prevent re-rewriting already mapped public paths
+    RewriteRule ^public/ - [L]
+
+    # Route all other requests through public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

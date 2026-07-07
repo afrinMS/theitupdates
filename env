@@ -1,0 +1,93 @@
+#--------------------------------------------------------------------
+# Example Environment Configuration file
+#
+# DEPLOYMENT: Copy this file to ".env" (no leading dot on some editors).
+# Fill in ALL values in the PRODUCTION section before deploying.
+#
+# On Hostinger: Create a .env file in your project root with these values.
+#--------------------------------------------------------------------
+
+#--------------------------------------------------------------------
+# ENVIRONMENT  (change to "production" on Hostinger)
+#--------------------------------------------------------------------
+
+# CI_ENVIRONMENT = production
+
+#--------------------------------------------------------------------
+# APP
+#--------------------------------------------------------------------
+
+# app.baseURL = 'https://yourdomain.com/'
+# If you have trouble with `.`, you could also use `_`.
+# app_baseURL = ''
+# app.forceGlobalSecureRequests = false
+# app.CSPEnabled = false
+
+#--------------------------------------------------------------------
+# DATABASE  (fill in your Hostinger DB credentials)
+#--------------------------------------------------------------------
+
+# database.default.hostname = localhost
+# database.default.database = your_db_name
+# database.default.username = your_db_user
+# database.default.password = your_db_password
+# database.default.DBDriver = MySQLi
+# database.default.DBPrefix =
+# database.default.port = 3306
+
+#--------------------------------------------------------------------
+# ENCRYPTION  (generate a random 32-char key for production)
+#--------------------------------------------------------------------
+
+# encryption.key = hex2bin:YOUR_32_CHAR_HEX_KEY_HERE
+
+#--------------------------------------------------------------------
+# SESSION
+#--------------------------------------------------------------------
+
+# session.driver = 'CodeIgniter\Session\Handlers\FileHandler'
+# session.savePath = null
+
+#--------------------------------------------------------------------
+# COOKIE SECURITY  (uncomment all three lines in production on HTTPS)
+#--------------------------------------------------------------------
+
+# cookie.secure   = true
+# cookie.httponly = true
+# cookie.samesite = Lax
+
+#--------------------------------------------------------------------
+# LOGGER  (set to 4 or higher in production to reduce log noise)
+#--------------------------------------------------------------------
+
+# logger.threshold = 4
+
+#--------------------------------------------------------------------
+# EMAIL  (configure your Hostinger SMTP or use PHP mail)
+#--------------------------------------------------------------------
+
+# email.fromEmail = no-reply@theitupdates.com
+# email.fromName = TheITUpdates
+# email.protocol = smtp
+# email.SMTPHost = smtp.hostinger.com
+# email.SMTPUser = your-smtp-email@yourdomain.com
+# email.SMTPPass = your-smtp-password
+# email.SMTPPort = 587
+# email.SMTPCrypto = tls
+
+#--------------------------------------------------------------------
+# CONTACT ADMIN EMAIL
+#--------------------------------------------------------------------
+
+# contact.adminEmail = shaikhafrin33@gmail.com
+
+#--------------------------------------------------------------------
+# GOOGLE RECAPTCHA (optional but recommended in production)
+#--------------------------------------------------------------------
+
+# recaptcha.siteKey =
+# recaptcha.secretKey =
+# recaptcha.version = v3
+# recaptcha.v3Threshold = 0.1
+# recaptcha.failOpenOnServiceError = true
+# recaptcha.allowedHostnames =

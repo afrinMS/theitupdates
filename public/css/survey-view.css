@@ -1,0 +1,280 @@
+﻿/* =========================================================
+   Survey Public Page â€” survey-view.css
+   NOTE: site html{font-size:10px} so all sizes use px, not rem
+   ========================================================= */
+
+/* â”€â”€ Hero Banner â”€â”€ */
+.sv-hero {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  min-height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+.sv-hero .sv-hero-overlay {
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,.25) 70%, transparent 100%);
+  padding: 32px 0 28px;
+}
+.sv-hero h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,.45);
+}
+
+/* â”€â”€ Body section â”€â”€ */
+.sv-body {
+  padding: 48px 0 64px;
+  background: #f8f9fb;
+}
+
+/* â”€â”€ Card wrapper â”€â”€ */
+.sv-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 28px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+
+/* â”€â”€ Two-column flex layout â”€â”€ */
+.sv-layout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  min-height: 1px;
+}
+
+/* â”€â”€ Left panel (image + desc) â”€â”€ */
+.sv-panel-left {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 33.3333%;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  padding: 32px 28px;
+  background: #fafbfc;
+  border-right: 1px solid #eef0f3;
+  box-sizing: border-box;
+}
+.sv-panel-left img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 14px rgba(0,0,0,.1);
+  display: block;
+}
+.sv-panel-left .sv-desc {
+  margin-top: 18px;
+  font-size: 15px;
+  color: #667;
+  line-height: 1.65;
+}
+
+/* â”€â”€ Right panel (form) â”€â”€ */
+.sv-panel-right {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  min-width: 0;
+  padding: 36px 36px 40px;
+  box-sizing: border-box;
+}
+.sv-form-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid #3aafa9;
+  line-height: 1.3;
+}
+
+/* â”€â”€ Form controls â”€â”€ */
+.sv-panel-right .form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+.sv-panel-right .form-control {
+  border: 1.5px solid #d8dce3;
+  border-radius: 8px;
+  font-size: 15px;
+  padding: 10px 14px;
+  transition: border-color .2s, box-shadow .2s;
+  background: #fafbfc;
+}
+.sv-panel-right .form-control:focus {
+  border-color: #3aafa9;
+  box-shadow: 0 0 0 3px rgba(58,175,169,.15);
+  background: #fff;
+  outline: none;
+}
+.sv-panel-right textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* â”€â”€ Radio / checkbox â”€â”€ */
+.sv-panel-right .form-check {
+  margin-bottom: 8px;
+}
+.sv-panel-right .form-check-input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #3aafa9;
+}
+.sv-panel-right .form-check-label {
+  padding-left: 6px;
+  font-size: 15px;
+  color: #444;
+  cursor: pointer;
+}
+
+/* â”€â”€ Question block â”€â”€ */
+.sv-question {
+  margin-bottom: 22px;
+  padding: 18px 20px;
+  background: #f6f8fa;
+  border-radius: 10px;
+  border-left: 4px solid #3aafa9;
+}
+.sv-question .form-label {
+  color: #1a1a2e;
+  font-size: 15px;
+}
+
+/* â”€â”€ Email block â”€â”€ */
+.sv-email-block {
+  margin-bottom: 22px;
+  padding: 18px 20px;
+  background: #eef9f8;
+  border-radius: 10px;
+  border-left: 4px solid #17a589;
+}
+
+/* â”€â”€ Submit button â”€â”€ */
+#sv-submit-btn {
+  background: linear-gradient(135deg, #3aafa9 0%, #17a589 100%);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  padding: 12px 38px;
+  min-width: 160px;
+  box-shadow: 0 4px 14px rgba(23,165,137,.35);
+  transition: transform .15s, box-shadow .15s, opacity .15s;
+}
+#sv-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(23,165,137,.45);
+  opacity: .95;
+}
+#sv-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(23,165,137,.3);
+}
+#sv-submit-btn:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+
+/* â”€â”€ Result alert â”€â”€ */
+#sv-form-result {
+  border-radius: 8px;
+  font-size: 15px;
+  padding: 12px 16px;
+}
+#sv-form-result.alert-success {
+  background: #e8f8f5;
+  border: 1.5px solid #1abc9c;
+  color: #0d6e56;
+}
+#sv-form-result.alert-danger {
+  background: #fdf2f2;
+  border: 1.5px solid #e74c3c;
+  color: #922b21;
+}
+
+/* â”€â”€ Error feedback â”€â”€ */
+.invalid-feedback {
+  font-size: 13px;
+  color: #c0392b;
+  margin-top: 4px;
+}
+
+/* â”€â”€ Privacy text â”€â”€ */
+.sv-privacy {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.55;
+}
+.sv-privacy a {
+  color: #3aafa9;
+  text-decoration: underline;
+}
+
+/* â”€â”€ Toast â”€â”€ */
+#sv-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1a2e;
+  color: #fff;
+  padding: 11px 26px;
+  border-radius: 30px;
+  display: none;
+  z-index: 9999;
+  font-size: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.25);
+  white-space: nowrap;
+}
+
+/* â”€â”€ Responsive â”€â”€ */
+@media (max-width: 991px) {
+  .sv-panel-left {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #eef0f3;
+    padding: 24px 20px;
+  }
+  .sv-panel-right {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    min-width: 0;
+    padding: 28px 20px 32px;
+  }
+  .sv-hero h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 575px) {
+  .sv-body {
+    padding: 24px 0 40px;
+  }
+  .sv-form-title {
+    font-size: 20px;
+  }
+  .sv-hero {
+    min-height: 140px;
+  }
+  .sv-hero h2 {
+    font-size: 22px;
+  }
+  #sv-submit-btn {
+    width: 100%;
+  }
+}
+

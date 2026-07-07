@@ -1,0 +1,27 @@
+.theme-menu-wrapper .top-header .contact-widget li.call a:hover,.theme-menu-wrapper .top-header .header-right-content .social-icon li a:hover,
+#mega-menu-wrapper .nav>li.dropdown-holder .sub-menu li:hover>a,.theme-button-two:hover,.about-short-feature .play-button,
+.solution-section .single-block:hover h5 a,.our-work .gallery-content-wrapper .single-block .overlay a,.pricing-table .pricing-tab-switch h3 span,
+.pricing-table .pricing-tab-switch .nav-tabs li a,.pricing-table .single-figure .package-feature ul li:before,.pricing-table .single-figure:hover .get-package,
+.theme-counter .single-box .number,.contact-us-section .contact-us form.form-two input[type="submit"],.theme-footer .footer-top-content .footer-newsletter h5,
+.theme-footer .footer-top-content .footer-logo p a,.theme-footer.text-color-dark.white-bg .footer-top-content .footer-list-item ul li a:hover {
+	color: #3e4ffa;
+}
+
+.theme-button-one,.theme-menu-wrapper .top-header .contact-widget li.help-text a:before,.bootstrap-select.btn-group .dropdown-menu li.selected a,
+.bootstrap-select.btn-group .dropdown-menu li:hover a,header .menu-wrapper .header-right-widget .search-option form button,
+#theme-main-banner .camera_pag .camera_pag_ul li.cameracurrent,#mega-menu-wrapper .nav>li>a:before,.about-short-feature .play-button:hover,
+.skew-content-section .text-box,.solution-section,.our-work .gallery-content-wrapper .single-block .overlay a:hover,.pricing-table .pricing-tab-switch .nav-tabs > li.active > a,
+.pricing-table .pricing-tab-switch .nav-tabs > li.active > a:hover,.pricing-table .pricing-tab-switch .nav-tabs > li.active > a:focus,.pricing-table .single-figure .get-package,
+.pricing-table.style-one .single-figure:hover,.contact-us-section .our-map .title h2 span:before,#mega-menu-wrapper .navbar-toggle .icon-bar {
+	background: #3e4ffa;
+}
+.contact-us-section .contact-us .opacity {background: rgba(62,79,250,0.9);}
+.pricing-table .pricing-tab-switch .nav-tabs li a,.pricing-table .single-figure .get-package {border-color:#3e4ffa;}
+.solution-section .theme-title-two:before {border-color:#3848f0;}
+.solution-section .bubble.bubble-one,
+.solution-section .bubble.bubble-two {background:#3848f0; }
+.theme-button-two {border-bottom-color: #3e4ffa;}
+.about-short-feature .play-button {background: #c5c6d4;}
+.help-banner p {border-left-color:#3e4ffa; }
+/*------------- Hover -----------*/
+.hvr-bounce-to-right:before {background: #1c2ab0;}

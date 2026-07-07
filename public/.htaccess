@@ -1,0 +1,68 @@
+# Disable directory browsing
+Options -Indexes
+
+# Block PHP execution inside the uploads directory (prevents malicious upload execution)
+<IfModule mod_rewrite.c>
+    RewriteRule ^uploads/.*\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$ - [F,NC,L]
+</IfModule>
+
+# Block access to hidden files (e.g. .htaccess, .env if accidentally placed here)
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block direct access to PHP files except:
+# 1) index.php (front controller)
+# 2) lander/*.php handlers used by campaign pages
+# 3) thanks.php legacy redirect bridge
+<IfModule mod_rewrite.c>
+	RewriteRule ^(?!index\.php$|thanks\.php$|lander/.+\.php$).+\.php$ - [F,NC,L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Rewrite engine
+# ----------------------------------------------------------------------
+
+# Turning on the rewrite engine is necessary for the following rules and features.
+# FollowSymLinks must be enabled for this to work.
+<IfModule mod_rewrite.c>
+	Options +FollowSymlinks
+	RewriteEngine On
+
+	# If you installed CodeIgniter in a subfolder, you will need to
+	# change the following line to match the subfolder you need.
+	# http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
+	# RewriteBase /
+
+	# Redirect Trailing Slashes...
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_URI} (.+)/$
+	RewriteRule ^ %1 [L,R=301]
+
+	# Force the canonical HTTPS www host.
+	RewriteCond %{HTTP_HOST} !^www\.theitupdates\.com$ [NC,OR]
+	RewriteCond %{HTTPS} !=on
+	RewriteRule ^ https://www.theitupdates.com%{REQUEST_URI} [R=301,L,NE]
+
+	# Checks to see if the user is attempting to access a valid file,
+	# such as an image or css document, if this isn't true it sends the
+	# request to the front controller, index.php
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^([\s\S]*)$ index.php/$1 [L,NC,QSA]
+
+	# Ensure Authorization header is passed along
+	RewriteCond %{HTTP:Authorization} .
+	RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+	# If we don't have mod_rewrite installed, all 404's
+	# can be sent to index.php, and everything works as normal.
+	ErrorDocument 404 index.php
+</IfModule>
+
+# Disable server signature start
+ServerSignature Off
+# Disable server signature end

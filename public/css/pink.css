@@ -1,0 +1,22 @@
+
+#mega-menu-wrapper .nav>li.dropdown-holder .sub-menu li:hover>a,.theme-menu-wrapper .top-header .contact-widget li.call a:hover,
+#theme-main-banner.banner-four .camera_caption .theme-button-fix i,.digital-specialist .discover:hover,.solution-section .single-block h5:hover a,
+.solution-section .single-block i,.pricing-table .single-figure .package-feature ul li:before,.pricing-table .single-figure .get-package,
+.theme-counter .single-box .number,.theme-footer .footer-top-content .footer-logo p a,.theme-footer.text-color-dark .footer-top-content .footer-list-item ul li a:hover,
+.solution-section .single-block:hover h5 a {
+	color: #fa8df1;
+}
+
+.theme-button-one,.theme-menu-wrapper .top-header .header-right-content .quote-button:before,.theme-menu-wrapper .top-header .contact-widget li.help-text a:before,
+#mega-menu-wrapper .nav>li>a:before,.bootstrap-select.btn-group .dropdown-menu li.selected a,.bootstrap-select.btn-group .dropdown-menu li:hover a,
+header .menu-wrapper .header-right-widget .search-option form button,.digital-specialist .discover:hover i,.pricing-table.style-three .single-figure .package-name,
+.pricing-table .single-figure .get-package:hover,.testimonial-style-two .grey-bg .owl-theme .owl-dots .owl-dot.active span,.testimonial-style-two .video-playback .play-button:hover,
+.theme-title-one:before,#mega-menu-wrapper .navbar-toggle .icon-bar {
+	background:#fa8df1;
+}
+.main-banner-bottom-text.style-two,.testimonial-style-two .main-slider-wrapper .testimonial-text .wrapper .name,
+.help-banner p {border-left-color:#fa8df1;}
+.digital-specialist .discover i,.pricing-table .single-figure .get-package {border-color:#fa8df1;}
+
+/*------------- Hover -----------*/
+.hvr-bounce-to-right:before {background: #d468cb;}
