@@ -10,10 +10,24 @@ class AdminSeeder extends Seeder
     {
         $adminModel = new \App\Models\AdminModel();
 
-        $adminModel->insert([
+        $email = 'admin@theitupdates.com';
+        $data = [
             'name'     => 'Admin',
-            'email'    => 'admin@theitupdates.com',
+            'email'    => $email,
             'password' => 'Admin@7656!#4',
-        ]);
+            'company'  => 'TheITUpdates',
+            'phone'    => '9874563210',
+            'login_attempts' => 0,
+            'locked_until'   => null,
+        ];
+
+        $existing = $adminModel->where('email', $email)->first();
+
+        if ($existing) {
+            $adminModel->update($existing['id'], $data);
+            return;
+        }
+
+        $adminModel->insert($data);
     }
 }
