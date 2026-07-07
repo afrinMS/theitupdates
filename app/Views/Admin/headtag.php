@@ -14,6 +14,9 @@
     <?php if (($pageTitle ?? '') === 'Whitepapers'): ?>
     <link href="<?php echo base_url('admin-assets/css/whitepapers.css'); ?>" rel="stylesheet" type="text/css" />
     <?php endif; ?>
+    <?php if (($pageTitle ?? '') === 'Survey Lander'): ?>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.css" rel="stylesheet">
+    <?php endif; ?>
     <!-- App js -->
     <script src="<?php echo base_url('admin-assets/js/plugin.js'); ?>"></script>
 </head>

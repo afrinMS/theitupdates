@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		data.forEach(function (row) {
 			var msg = (row.message && row.message.trim() !== '') ?
 				'<span title="' + escapeHtml(row.message) + '" style="cursor:pointer;white-space:nowrap;overflow:hidden;display:inline-block;max-width:140px;vertical-align:middle;text-overflow:ellipsis;">' + escapeHtml(row.message) + '</span>' :
-				'<span class="text-muted">—</span>';
+				'<span class="text-muted">-</span>';
 
 			var tr = '<tr>' +
 				'<td><strong>' + escapeHtml(row.name) + '</strong></td>' +
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				'<td><a href="mailto:' + escapeHtml(row.email) + '">' + escapeHtml(row.email) + '</a></td>' +
 				'<td>' + escapeHtml(row.company_name) + '</td>' +
 				'<td>' + escapeHtml(row.industry) + '</td>' +
-				'<td>' + (row.phone ? escapeHtml(row.phone) : '<span class="text-muted">—</span>') + '</td>' +
+				'<td>' + (row.phone ? escapeHtml(row.phone) : '<span class="text-muted">-</span>') + '</td>' +
 				'<td>' + escapeHtml(row.country) + '</td>' +
 				'<td>' + msg + '</td>' +
 				'<td><small class="text-muted">' + formatDate(row.created_at) + '</small></td>' +
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	function formatDate(dateStr) {
-		if (!dateStr) { return '—'; }
+		if (!dateStr) { return '-'; }
 		var d = new Date(dateStr);
 		if (isNaN(d.getTime())) { return dateStr; }
 		var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];

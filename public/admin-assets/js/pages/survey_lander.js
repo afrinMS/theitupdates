@@ -2,15 +2,16 @@
 $(function () {
   'use strict';
 
-  var apiUrl = '/admin/survey-lander';
+  var apiUrl = (typeof SURVEY_LANDER_BASE_URL !== 'undefined' ? SURVEY_LANDER_BASE_URL : '/admin/survey-lander');
+  var pdfBaseUrl = (typeof SURVEY_PDF_BASE_URL !== 'undefined' ? SURVEY_PDF_BASE_URL : '/uploads/surveypdf');
+  var imageBaseUrl = (typeof SURVEY_IMAGE_BASE_URL !== 'undefined' ? SURVEY_IMAGE_BASE_URL : '/uploads/surveyimage');
   var sortField = 'id';
   var sortDir = 'desc';
   var currentPage = 1;
   var perPage = 10;
   var search = '';
   var selectedDeleteId = null;
-
-  // ─── CSRF helpers ─────────────────────────────────────────────────────────
+  // CSRF helpers
   function currentCsrfValue() {
     return $('input[name="' + CSRF_NAME + '"]').first().val() || '';
   }
@@ -26,8 +27,7 @@ $(function () {
     if (res && res.csrf) { refreshCsrf(res.csrf); return; }
     refreshCsrfFromCookie();
   }
-
-  // ─── Utilities ────────────────────────────────────────────────────────────
+  // Utilities
   function escapeHtml(text) {
     return $('<div>').text(text || '').html();
   }
@@ -36,8 +36,7 @@ $(function () {
     var d = new Date(val.replace(' ', 'T'));
     return isNaN(d) ? val : d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
   }
-
-  // ─── Fetch & render list ──────────────────────────────────────────────────
+  // Fetch & render list
   function fetchLanders() {
     $('#sl-table-body').html('<tr><td colspan="6" class="text-center text-muted py-4">Loading...</td></tr>');
     $.get(apiUrl + '/list', {
@@ -109,8 +108,7 @@ $(function () {
     html += '<li class="page-item' + (cur >= last ? ' disabled' : '') + '"><a class="page-link" href="#" data-page="' + Math.min(last, cur + 1) + '">&rsaquo;</a></li>';
     $('#sl-pagination').html(html);
   }
-
-  // ─── Sort ─────────────────────────────────────────────────────────────────
+  // Sort
   $('#sl-table').on('click', '.sortable', function () {
     var field = $(this).data('sort');
     if (sortField === field) {
@@ -132,22 +130,19 @@ $(function () {
       }
     });
   }
-
-  // ─── Pagination ───────────────────────────────────────────────────────────
+  // Pagination
   $('#sl-pagination').on('click', '.page-link', function (e) {
     e.preventDefault();
     var page = parseInt($(this).data('page'));
     if (!isNaN(page)) { currentPage = page; fetchLanders(); }
   });
-
-  // ─── Per page ─────────────────────────────────────────────────────────────
+  // Per page
   $('#sl-per-page').on('change', function () {
     perPage = parseInt($(this).val());
     currentPage = 1;
     fetchLanders();
   });
-
-  // ─── Search ───────────────────────────────────────────────────────────────
+  // Search
   $('#sl-search-form').on('submit', function (e) {
     e.preventDefault();
     search = $('#sl-search').val().trim();
@@ -160,8 +155,7 @@ $(function () {
     currentPage = 1;
     fetchLanders();
   });
-
-  // ─── Radio show/hide options wrap ─────────────────────────────────────────
+  // Radio show/hide options wrap
   $(document).on('change', '.sl-type-radio', function () {
     var q = $(this).closest('.sl-question-block').data('q');
     var val = $(this).val();
@@ -171,8 +165,7 @@ $(function () {
       $('#q' + q + '_options_wrap').addClass('d-none');
     }
   });
-
-  // ─── File name display ────────────────────────────────────────────────────
+  // File name display
   $('#sl-file').on('change', function () {
     var name = this.files && this.files.length ? this.files[0].name : '';
     $('#sl-file-info').text(name ? 'Selected: ' + name : '');
@@ -181,8 +174,7 @@ $(function () {
     var name = this.files && this.files.length ? this.files[0].name : '';
     $('#sl-image-info').text(name ? 'Selected: ' + name : '');
   });
-
-  // ─── Client-side validation ───────────────────────────────────────────────
+  // Client-side validation
   function clearErrors() {
     $('#sl-form .invalid-feedback').text('');
     $('#sl-form-result').addClass('d-none').text('');
@@ -267,8 +259,7 @@ $(function () {
     }
     return valid;
   }
-
-  // ─── Add ──────────────────────────────────────────────────────────────────
+  // Add
   $('#add-sl-btn').on('click', function () {
     resetForm();
     $('#slModalLabel').text('Add New Lander');
@@ -294,8 +285,7 @@ $(function () {
       $('#q' + i + '_options_wrap').addClass('d-none');
     }
   }
-
-  // ─── Submit (create / update) ─────────────────────────────────────────────
+  // Submit (create / update)
   $('#sl-form').on('submit', function (e) {
     e.preventDefault();
     var id     = $(this).data('edit-id');
@@ -350,8 +340,7 @@ $(function () {
       }
     });
   });
-
-  // ─── Edit ─────────────────────────────────────────────────────────────────
+  // Edit
   $('#sl-table-body').on('click', '.edit-sl-btn', function () {
     var id = $(this).data('id');
     $.get(apiUrl + '/get/' + id, function (res) {
@@ -406,8 +395,7 @@ $(function () {
       $('#slModal').modal('show');
     });
   });
-
-  // ─── View ─────────────────────────────────────────────────────────────────
+  // View
   $('#sl-table-body').on('click', '.view-sl-btn', function () {
     var id = $(this).data('id');
     $('#view-sl-body').html('<p class="text-muted">Loading...</p>');
@@ -418,10 +406,10 @@ $(function () {
       var questions = res.questions || [];
 
       var pdfLink = row.file
-        ? '<a href="/uploads/surveypdf/' + escapeHtml(row.file) + '" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fas fa-file-pdf me-1"></i>View PDF</a>'
+        ? '<a href="' + pdfBaseUrl + '/' + encodeURIComponent(row.file) + '" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fas fa-file-pdf me-1"></i>View PDF</a>'
         : '<span class="text-muted">No file</span>';
       var imgLink = row.img_path
-        ? '<img src="/uploads/surveyimage/' + escapeHtml(row.img_path) + '" class="img-fluid rounded" style="max-height:200px;" alt="Survey Image">'
+        ? '<img src="' + imageBaseUrl + '/' + encodeURIComponent(row.img_path) + '" class="img-fluid rounded" style="max-height:200px;" alt="Survey Image">'
         : '<span class="text-muted">No image</span>';
 
       var qHtml = '';
@@ -460,8 +448,7 @@ $(function () {
       $('#view-sl-body').html(html);
     });
   });
-
-  // ─── Copy public link ────────────────────────────────────────────────────
+  // Copy public link
   $('#sl-table-body').on('click', '.sl-copy-btn', function () {
     var url = $(this).data('url');
     if (!url) return;
@@ -483,8 +470,7 @@ $(function () {
       setTimeout(function () { $btn.html('<i class="fas fa-link"></i>'); }, 2000);
     }
   });
-
-  // ─── Delete ───────────────────────────────────────────────────────────────
+  // Delete
   $('#sl-table-body').on('click', '.delete-sl-btn', function () {
     selectedDeleteId = $(this).data('id');
     $('#delete-sl-name').text($(this).data('name'));
@@ -520,8 +506,7 @@ $(function () {
       }
     });
   });
-
-  // ─── Page-level alert ─────────────────────────────────────────────────────
+  // Page-level alert
   function showPageAlert(type, msg) {
     var $el = $('#sl-page-result');
     $el.removeClass('d-none alert-success alert-danger alert-warning')
@@ -529,8 +514,7 @@ $(function () {
        .text(msg);
     setTimeout(function () { $el.addClass('d-none'); }, 5000);
   }
-
-  // ─── Init ─────────────────────────────────────────────────────────────────
+  // Init
   fetchLanders();
   updateSortIndicators();
 });

@@ -85,7 +85,7 @@
                         </tr>
                       </thead>
                       <tbody id="sr-table-body">
-                        <tr><td colspan="8" class="text-center text-muted py-4">Loading…</td></tr>
+                        <tr><td colspan="8" class="text-center text-muted py-4">Loading...</td></tr>
                       </tbody>
                     </table>
                   </div>

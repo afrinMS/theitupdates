@@ -35,7 +35,7 @@
                     </h4>
                     <form id="dl-books-search-form" class="d-flex gap-2 flex-wrap">
                       <input type="text" class="form-control" id="dl-books-search"
-                        placeholder="Search whitepaper…">
+                        placeholder="Search whitepaper...">
                       <button type="submit" class="btn btn-outline-primary">Search</button>
                       <button type="button" class="btn btn-outline-secondary" id="dl-books-refresh">
                         <i class="fas fa-sync"></i>
@@ -110,7 +110,8 @@
   <script>
   var CSRF_NAME   = '<?= csrf_token() ?>';
   var CSRF_COOKIE = 'csrf_cookie_name';
+  var DL_BOOKS_LIST_URL = '<?= base_url('admin/downloaded-books/list') ?>';
   </script>
-  <script src="<?= base_url('admin-assets/js/pages/downloaded_books.js') ?>?v=1"></script>
+  <script src="<?= base_url('admin-assets/js/pages/downloaded_books.js') ?>?v=2"></script>
 </body>
 </html>

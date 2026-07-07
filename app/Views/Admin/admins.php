@@ -240,7 +240,8 @@
   <script>
   var CSRF_NAME = '<?= csrf_token() ?>';
   var CSRF_COOKIE = 'csrf_cookie_name';
+  var ADMINS_BASE_URL = '<?= base_url('admin/admins') ?>';
   </script>
-  <script src="<?= base_url('admin-assets/js/pages/admins.js') ?>?v=1"></script>
+  <script src="<?= base_url('admin-assets/js/pages/admins.js') ?>?v=2"></script>
 </body>
 </html>

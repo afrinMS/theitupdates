@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	// Pagination
-	$(document).on('click', '.pagination a', function (e) {
+	$paginationContainer.on('click', 'a.page-link', function (e) {
 		e.preventDefault();
 		var page = $(this).data('page');
 		if (page) {

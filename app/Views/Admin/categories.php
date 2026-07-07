@@ -168,7 +168,8 @@
   <script>
     var CSRF_NAME = '<?= csrf_token() ?>';
     var CSRF_COOKIE = 'csrf_cookie_name';
+    var CATEGORIES_BASE_URL = '<?= base_url('admin/categories') ?>';
   </script>
-  <script src="/admin-assets/js/pages/categories.js?v=1"></script>
+  <script src="<?= base_url('admin-assets/js/pages/categories.js') ?>?v=2"></script>
 </body>
 </html>

@@ -118,6 +118,10 @@
     var siteKey = '<?= esc($adminRecaptchaSiteKey) ?>';
     var submitted = false;
 
+    if (!form || !tokenInput || typeof grecaptcha === 'undefined') {
+      return;
+    }
+
     grecaptcha.ready(function() {
       form.addEventListener('submit', function(e) {
         if (submitted) return;

@@ -1,7 +1,7 @@
 $(function () {
   'use strict';
 
-  var apiUrl = '/admin/direct';
+  var apiUrl = (typeof DIRECT_BASE_URL !== 'undefined' ? DIRECT_BASE_URL : '/admin/direct');
   var sortField = 'id';
   var sortDir = 'desc';
   var currentPage = 1;

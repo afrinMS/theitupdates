@@ -4,7 +4,6 @@
   $pageTitle = "Survey Lander";
   include 'headtag.php';
 ?>
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.css" rel="stylesheet">
 
 <body data-sidebar="dark">
   <div id="layout-wrapper">
@@ -280,10 +279,13 @@
   <script>
   var CSRF_NAME = '<?= csrf_token() ?>';
   var CSRF_COOKIE = 'csrf_cookie_name';
+  var SURVEY_LANDER_BASE_URL = '<?= base_url('admin/survey-lander') ?>';
+  var SURVEY_PDF_BASE_URL = '<?= base_url('uploads/surveypdf') ?>';
+  var SURVEY_IMAGE_BASE_URL = '<?= base_url('uploads/surveyimage') ?>';
   </script>
-  <script src="<?= base_url('admin-assets/js/pages/survey_lander.js') ?>?v=1"></script>
   <!-- Summernote -->
   <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.js"></script>
+  <script src="<?= base_url('admin-assets/js/pages/survey_lander.js') ?>?v=2"></script>
   <script>
   $(function () {
     $('#sl-privacy').summernote({

@@ -1,7 +1,7 @@
 $(function () {
   'use strict';
 
-  var apiUrl    = '/admin/downloaded-books/list';
+  var apiUrl    = (typeof DL_BOOKS_LIST_URL !== 'undefined' ? DL_BOOKS_LIST_URL : '/admin/downloaded-books/list');
   var sortField = 'id';
   var sortDir   = 'DESC';
   var currentPage = 1;
@@ -29,9 +29,9 @@ $(function () {
 
   /* Renders a Q/A cell: short text inline, long text truncated with a "more" link */
   function qaCell(text) {
-    if (!text) return '<span class="text-muted">—</span>';
+    if (!text) return '<span class="text-muted">-</span>';
     if (text.length <= 80) return esc(text);
-    return '<span class="dl-qa-short">' + esc(text.substring(0, 80)) + '…</span> ' +
+    return '<span class="dl-qa-short">' + esc(text.substring(0, 80)) + '...</span> ' +
            '<a href="#" class="dl-qa-more text-primary small" data-full="' + esc(text) + '">more</a>';
   }
 
@@ -46,15 +46,15 @@ $(function () {
         var region = '';
         if (r.if_europe === 'Yes')    region = '<span class="badge bg-info text-dark">Europe</span>';
         else if (r.if_noneurope === 'Yes') region = '<span class="badge bg-secondary">Non-Europe</span>';
-        else                          region = '<span class="text-muted">—</span>';
+        else                          region = '<span class="text-muted">-</span>';
 
         html += '<tr>' +
           '<td class="text-muted small">' + esc(r.id) + '</td>' +
-          '<td><span class="fw-semibold" style="font-size:.875rem;">' + esc(r.book_name || '—') + '</span></td>' +
-          '<td>' + esc(r.name || '—') + '</td>' +
-          '<td class="small">' + esc(r.email_id || '—') + '</td>' +
-          '<td class="small">' + esc(r.job_title || '—') + '</td>' +
-          '<td class="small">' + esc(r.comp || '—') + '</td>' +
+          '<td><span class="fw-semibold" style="font-size:.875rem;">' + esc(r.book_name || '-') + '</span></td>' +
+          '<td>' + esc(r.name || '-') + '</td>' +
+          '<td class="small">' + esc(r.email_id || '-') + '</td>' +
+          '<td class="small">' + esc(r.job_title || '-') + '</td>' +
+          '<td class="small">' + esc(r.comp || '-') + '</td>' +
           '<td>' + region + '</td>' +
           '<td class="small text-muted">' + qaCell(r.customquestion) + '</td>' +
           '<td class="small text-muted">' + qaCell(r.answers) + '</td>' +
@@ -102,7 +102,7 @@ $(function () {
   /* ---- Fetch ---- */
   function fetchRows() {
     $('#dl-books-table-body').html(
-      '<tr><td colspan="9" class="text-center text-muted py-4"><i class="fas fa-spinner fa-spin me-2"></i>Loading…</td></tr>'
+      '<tr><td colspan="9" class="text-center text-muted py-4"><i class="fas fa-spinner fa-spin me-2"></i>Loading...</td></tr>'
     );
     $.get(apiUrl, {
       page:       currentPage,
@@ -124,7 +124,7 @@ $(function () {
   }
 
   /* ---- Events ---- */
-  /* Q/A "more" link → show full text in modal */
+  /* Q/A "more" link: show full text in modal */
   $(document).on('click', '.dl-qa-more', function (e) {
     e.preventDefault();
     var full = $(this).data('full');

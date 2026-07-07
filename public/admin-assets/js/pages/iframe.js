@@ -1,6 +1,6 @@
 // Iframe admin page JS (AJAX CRUD, sorting, pagination, validation)
 $(function () {
-  const apiUrl = '/admin/iframe';
+  const apiUrl = (typeof IFRAME_BASE_URL !== 'undefined' ? IFRAME_BASE_URL : '/admin/iframe');
   let sortField = 'iframe_id';
   let sortDir = 'asc';
   let currentPage = 1;

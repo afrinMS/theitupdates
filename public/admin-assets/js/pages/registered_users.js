@@ -1,7 +1,7 @@
 $(function () {
   'use strict';
 
-  var apiUrl = '/admin/registered-users';
+  var apiUrl = (typeof REGISTERED_USERS_BASE_URL !== 'undefined' ? REGISTERED_USERS_BASE_URL : '/admin/registered-users');
   var sortField = 'created_at';
   var sortDir = 'desc';
   var currentPage = 1;

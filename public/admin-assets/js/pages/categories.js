@@ -1,6 +1,6 @@
 // Categories admin page JS (AJAX CRUD, sorting, pagination, validation)
 $(function () {
-  const apiUrl = '/admin/categories';
+  const apiUrl = (typeof CATEGORIES_BASE_URL !== 'undefined' ? CATEGORIES_BASE_URL : '/admin/categories');
   let sortField = 'c_id';
   let sortDir = 'asc';
   let currentPage = 1;
@@ -94,7 +94,7 @@ $(function () {
       const field = $th.data('sort');
       $th.find('.sort-indicator').html('');
       if (field === sortField) {
-        $th.find('.sort-indicator').html(sortDir === 'asc' ? '▲' : '▼');
+        $th.find('.sort-indicator').html(sortDir === 'asc' ? '&uarr;' : '&darr;');
       }
     });
   }

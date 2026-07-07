@@ -219,8 +219,9 @@
   <script>
   var CSRF_NAME = '<?= csrf_token() ?>';
   var CSRF_COOKIE = 'csrf_cookie_name';
+  var IFRAME_BASE_URL = '<?= base_url('admin/iframe') ?>';
   </script>
-  <script src="/admin-assets/js/pages/iframe.js?v=1"></script>
+  <script src="<?= base_url('admin-assets/js/pages/iframe.js') ?>?v=2"></script>
   <script>
   // Show selected image file name in Upload Image field
   $(document).on('change', '#iframe-image', function() {

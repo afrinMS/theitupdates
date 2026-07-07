@@ -5,7 +5,7 @@
   include 'headtag.php';
 ?>
 <style>
-  /* ── Dashboard custom styles ── */
+  /* ------ Dashboard custom styles ------ */
   .dash-welcome-card {
     background: linear-gradient(135deg, #2c3e8c 0%, #4361ee 60%, #4cc9f0 100%);
     border: none;
@@ -306,16 +306,16 @@
                           <tr>
                             <td class="ps-4" style="font-size:.875rem;max-width:200px;">
                               <div class="text-truncate fw-semibold" title="<?php echo esc($dr['img_title'] ?? ''); ?>">
-                                <?php echo esc($dr['img_title'] ?? '—'); ?>
+                                <?php echo esc($dr['img_title'] ?? '-'); ?>
                               </div>
                             </td>
                             <td>
                               <span class="badge" style="background:rgba(245,158,11,.1);color:#d97706;border-radius:6px;padding:.35em .7em;font-weight:600;">
-                                <?php echo esc($dr['CampaignId'] ?? '—'); ?>
+                                <?php echo esc($dr['CampaignId'] ?? '-'); ?>
                               </span>
                             </td>
                             <td class="pe-4 text-muted" style="font-size:.8rem;white-space:nowrap;">
-                              <?php echo !empty($dr['date']) ? date('M d, Y', strtotime($dr['date'])) : '—'; ?>
+                              <?php echo !empty($dr['date']) ? date('M d, Y', strtotime($dr['date'])) : '-'; ?>
                             </td>
                           </tr>
                           <?php endforeach; ?>
@@ -378,10 +378,10 @@
                               </div>
                             </div>
                           </td>
-                          <td style="font-size:.875rem;"><?php echo esc($user['company'] ?? '—'); ?></td>
+                          <td style="font-size:.875rem;"><?php echo esc($user['company'] ?? '-'); ?></td>
                           <td class="pe-4">
                             <span class="badge" style="background:rgba(67,97,238,.1);color:#4361ee;font-weight:600;border-radius:6px;padding:.35em .7em;">
-                              <?php echo isset($user['created_at']) ? date('M d, Y', strtotime($user['created_at'])) : '—'; ?>
+                              <?php echo isset($user['created_at']) ? date('M d, Y', strtotime($user['created_at'])) : '-'; ?>
                             </span>
                           </td>
                         </tr>
@@ -431,16 +431,16 @@
                           <tr>
                             <td class="ps-4" style="font-size:.875rem;max-width:160px;">
                               <div class="text-truncate" title="<?php echo esc($wp['name'] ?? ''); ?>">
-                                <?php echo esc($wp['name'] ?? '—'); ?>
+                                <?php echo esc($wp['name'] ?? '-'); ?>
                               </div>
                             </td>
                             <td>
                               <span class="badge" style="background:rgba(10,179,156,.1);color:#0ab39c;border-radius:6px;padding:.35em .7em;font-weight:600;">
-                                <?php echo esc($wp['type'] ?? '—'); ?>
+                                <?php echo esc($wp['type'] ?? '-'); ?>
                               </span>
                             </td>
                             <td class="pe-4 text-muted" style="font-size:.8rem; white-space:nowrap;">
-                              <?php echo !empty($wp['date']) ? date('M d, Y', strtotime($wp['date'])) : '—'; ?>
+                              <?php echo !empty($wp['date']) ? date('M d, Y', strtotime($wp['date'])) : '-'; ?>
                             </td>
                           </tr>
                           <?php endforeach; ?>
@@ -533,12 +533,12 @@
                           <?php foreach ($stats['recent_downloads'] as $dl): ?>
                           <tr>
                             <td class="ps-4">
-                              <span class="fw-semibold" style="font-size:.875rem;"><?php echo esc($dl['book_name'] ?? '—'); ?></span>
+                              <span class="fw-semibold" style="font-size:.875rem;"><?php echo esc($dl['book_name'] ?? '-'); ?></span>
                             </td>
-                            <td style="font-size:.875rem;"><?php echo esc($dl['name'] ?? '—'); ?></td>
-                            <td class="text-muted" style="font-size:.8rem;"><?php echo esc($dl['email_id'] ?? '—'); ?></td>
-                            <td style="font-size:.8rem;"><?php echo esc($dl['job_title'] ?? '—'); ?></td>
-                            <td class="pe-4" style="font-size:.8rem;"><?php echo esc($dl['comp'] ?? '—'); ?></td>
+                            <td style="font-size:.875rem;"><?php echo esc($dl['name'] ?? '-'); ?></td>
+                            <td class="text-muted" style="font-size:.8rem;"><?php echo esc($dl['email_id'] ?? '-'); ?></td>
+                            <td style="font-size:.8rem;"><?php echo esc($dl['job_title'] ?? '-'); ?></td>
+                            <td class="pe-4" style="font-size:.8rem;"><?php echo esc($dl['comp'] ?? '-'); ?></td>
                           </tr>
                           <?php endforeach; ?>
                         <?php else: ?>
