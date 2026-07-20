@@ -29,8 +29,12 @@
     RewriteRule ^(app|system|tests|writable)(/|$) - [F,L]
 
     # Keep campaign landers on clean URLs (no /public in browser address bar).
-    # Map /lander/<slug> to its index page without external redirect.
-    RewriteRule ^lander/([^/]+)/?$ public/lander/$1/index.php [L]
+    # Canonicalize directory URLs first so relative assets and form actions resolve
+    # inside the campaign folder (for example, submit.php).
+    RewriteRule ^lander/([^/]+)$ /lander/$1/ [R=301,L,NE]
+
+    # Map the canonical /lander/<slug>/ URL to its index page.
+    RewriteRule ^lander/([^/]+)/$ public/lander/$1/index.php [L]
 
     # Internally map all other /lander/* paths to /public/lander/*
     RewriteRule ^(lander/.*)$ public/$1 [L]

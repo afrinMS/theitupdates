@@ -931,7 +931,14 @@ class UserController extends BaseController
                 'submittedAt' => date('d M Y, h:i A'),
             ]));
 
-            return $email->send();
+            $sent = $email->send();
+            if (! $sent) {
+                log_message('error', 'Contact notification email failed: {debug}', [
+                    'debug' => strip_tags($email->printDebugger([])),
+                ]);
+            }
+
+            return $sent;
         } catch (\Throwable $exception) {
             log_message('error', 'Contact notification email failed: {message}', ['message' => $exception->getMessage()]);
 
@@ -957,7 +964,14 @@ class UserController extends BaseController
                 'submittedAt' => date('d M Y, h:i A'),
             ]));
 
-            return $email->send();
+            $sent = $email->send();
+            if (! $sent) {
+                log_message('error', 'Publish notification email failed: {debug}', [
+                    'debug' => strip_tags($email->printDebugger([])),
+                ]);
+            }
+
+            return $sent;
         } catch (\Throwable $exception) {
             log_message('error', 'Publish notification email failed: {message}', ['message' => $exception->getMessage()]);
 
@@ -983,7 +997,14 @@ class UserController extends BaseController
                 'submittedAt'  => date('d M Y, h:i A'),
             ]));
 
-            return $email->send();
+            $sent = $email->send();
+            if (! $sent) {
+                log_message('error', 'Subscribe notification email failed: {debug}', [
+                    'debug' => strip_tags($email->printDebugger([])),
+                ]);
+            }
+
+            return $sent;
         } catch (\Throwable $exception) {
             log_message('error', 'Subscribe notification email failed: {message}', ['message' => $exception->getMessage()]);
 
