@@ -906,6 +906,103 @@ class AdminController extends BaseController
         return view('Admin/subscribers');
     }
 
+    public function publishRequests()
+    {
+        return view('Admin/form_requests', [
+            'pageTitle'   => 'Publish Whitepaper Requests',
+            'heading'     => 'Publish Whitepaper Requests',
+            'description' => 'Users who submitted the Publish Whitepaper form.',
+            'icon'        => 'fas fa-file-upload',
+            'listUrl'     => base_url('admin/publish-requests/list'),
+            'emptyText'   => 'No publish whitepaper requests found.',
+            'searchHint'  => 'Search name, email, company...',
+            'columns'     => [
+                ['field' => 'first_name', 'label' => 'First Name'],
+                ['field' => 'last_name', 'label' => 'Last Name'],
+                ['field' => 'email', 'label' => 'Email', 'type' => 'email'],
+                ['field' => 'telephone', 'label' => 'Telephone'],
+                ['field' => 'company_name', 'label' => 'Company'],
+                ['field' => 'zip_code', 'label' => 'ZIP Code'],
+                ['field' => 'email_sent', 'label' => 'Email Status', 'type' => 'status'],
+                ['field' => 'created_at', 'label' => 'Submitted', 'type' => 'date'],
+            ],
+        ]);
+    }
+
+    public function contactEnquiries()
+    {
+        return view('Admin/form_requests', [
+            'pageTitle'   => 'Contact Us Enquiries',
+            'heading'     => 'Contact Us Enquiries',
+            'description' => 'Messages submitted through the website Contact Us form.',
+            'icon'        => 'fas fa-comment-dots',
+            'listUrl'     => base_url('admin/contact-enquiries/list'),
+            'emptyText'   => 'No contact enquiries found.',
+            'searchHint'  => 'Search name, email, company, message...',
+            'columns'     => [
+                ['field' => 'name', 'label' => 'Name'],
+                ['field' => 'email', 'label' => 'Email', 'type' => 'email'],
+                ['field' => 'company', 'label' => 'Company'],
+                ['field' => 'message', 'label' => 'Message', 'type' => 'message', 'sortable' => false],
+                ['field' => 'email_sent', 'label' => 'Email Status', 'type' => 'status'],
+                ['field' => 'created_at', 'label' => 'Submitted', 'type' => 'date'],
+            ],
+        ]);
+    }
+
+    public function listPublishRequests()
+    {
+        return $this->listFormRequests(
+            new \App\Models\PublishModel(),
+            ['id', 'first_name', 'last_name', 'email', 'telephone', 'company_name', 'zip_code', 'email_sent', 'created_at'],
+            ['first_name', 'last_name', 'email', 'telephone', 'company_name', 'zip_code']
+        );
+    }
+
+    public function listContactEnquiries()
+    {
+        return $this->listFormRequests(
+            new \App\Models\ContactUsModel(),
+            ['id', 'name', 'email', 'company', 'message', 'email_sent', 'created_at'],
+            ['name', 'email', 'company', 'message']
+        );
+    }
+
+    private function listFormRequests(\CodeIgniter\Model $model, array $allowedSortFields, array $searchFields)
+    {
+        if (! $this->request->isAJAX()) {
+            return $this->response->setStatusCode(405)->setBody('Method Not Allowed');
+        }
+
+        $page    = max(1, (int) ($this->request->getGet('page') ?: 1));
+        $perPage = min(100, max(10, (int) ($this->request->getGet('per_page') ?: 10)));
+        $search  = trim((string) $this->request->getGet('search'));
+        $sort    = (string) ($this->request->getGet('sort') ?: 'created_at');
+        $order   = strtoupper((string) ($this->request->getGet('order') ?: 'DESC'));
+        $sort    = in_array($sort, $allowedSortFields, true) ? $sort : 'created_at';
+        $order   = in_array($order, ['ASC', 'DESC'], true) ? $order : 'DESC';
+
+        if ($search !== '') {
+            $model->groupStart();
+            foreach ($searchFields as $index => $field) {
+                $index === 0 ? $model->like($field, $search) : $model->orLike($field, $search);
+            }
+            $model->groupEnd();
+        }
+
+        $total = $model->countAllResults(false);
+        $data  = $model->orderBy($sort, $order)->findAll($perPage, ($page - 1) * $perPage);
+
+        return $this->response->setJSON([
+            'success'     => true,
+            'data'        => $data,
+            'page'        => $page,
+            'per_page'    => $perPage,
+            'total'       => $total,
+            'total_pages' => (int) ceil($total / $perPage),
+        ]);
+    }
+
     public function listSubscribers()
     {
         if (! $this->request->isAJAX()) {

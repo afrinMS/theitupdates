@@ -22,6 +22,7 @@
             </a>
             <ul class="sub-menu" aria-expanded="false">
                 <li><a href="<?php echo base_url('admin/whitepapers'); ?>" key="t-wp">Whitepapers</a></li>
+                <li><a href="<?php echo base_url('admin/publish-requests'); ?>" key="t-pwr">Publish Requests</a></li>
                 <li><a href="<?php echo base_url('admin/downloaded-books'); ?>" key="t-dwp">Downloaded</a></li>
             </ul>
         </li>
@@ -37,6 +38,13 @@
           <a href="<?php echo base_url('admin/subscribers'); ?>" class="waves-effect">
             <i class="fas fa-envelope-open-text"></i>
             <span key="t-ecommerce">Subscribers</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="<?php echo base_url('admin/contact-enquiries'); ?>" class="waves-effect">
+            <i class="fas fa-comment-dots"></i>
+            <span key="t-contact-enquiries">Contact Enquiries</span>
           </a>
         </li>
 

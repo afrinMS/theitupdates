@@ -60,6 +60,10 @@ $routes->group('admin', function ($routes) {
     $routes->get('registered-users/list', '\App\Controllers\Admin\RegisteredUsersController::list', ['filter' => 'adminAuth']);
     $routes->get('subscribers', '\App\Controllers\Admin\AdminController::subscribers', ['filter' => 'adminAuth']);
     $routes->get('subscribers/list', '\App\Controllers\Admin\AdminController::listSubscribers', ['filter' => 'adminAuth']);
+    $routes->get('publish-requests', '\App\Controllers\Admin\AdminController::publishRequests', ['filter' => 'adminAuth']);
+    $routes->get('publish-requests/list', '\App\Controllers\Admin\AdminController::listPublishRequests', ['filter' => 'adminAuth']);
+    $routes->get('contact-enquiries', '\App\Controllers\Admin\AdminController::contactEnquiries', ['filter' => 'adminAuth']);
+    $routes->get('contact-enquiries/list', '\App\Controllers\Admin\AdminController::listContactEnquiries', ['filter' => 'adminAuth']);
     $routes->get('categories', '\App\Controllers\Admin\AdminController::categories', ['filter' => 'adminAuth']);
 
     // Categories AJAX CRUD
