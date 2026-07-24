@@ -16,6 +16,8 @@ $routes->post('publish-whitepaper', '\App\Controllers\User\UserController::submi
 $routes->get('contact', '\App\Controllers\User\UserController::contact');
 $routes->post('contact', '\App\Controllers\User\UserController::submitContact');
 $routes->post('subscribe', '\App\Controllers\User\UserController::submitSubscribe');
+$routes->get('unsubscribe', '\App\Controllers\User\UnsubscribeController::index');
+$routes->post('unsubscribe', '\App\Controllers\User\UnsubscribeController::store');
 $routes->get('privacy-policy', '\App\Controllers\User\UserController::privacyPolicy');
 $routes->post('submit-dnc', '\App\Controllers\User\UserController::submitDnc');
 $routes->post('submit-partnering', '\App\Controllers\User\UserController::submitPartnering');
@@ -60,6 +62,8 @@ $routes->group('admin', function ($routes) {
     $routes->get('registered-users/list', '\App\Controllers\Admin\RegisteredUsersController::list', ['filter' => 'adminAuth']);
     $routes->get('subscribers', '\App\Controllers\Admin\AdminController::subscribers', ['filter' => 'adminAuth']);
     $routes->get('subscribers/list', '\App\Controllers\Admin\AdminController::listSubscribers', ['filter' => 'adminAuth']);
+    $routes->get('unsubscribes', '\App\Controllers\Admin\AdminController::unsubscribes', ['filter' => 'adminAuth']);
+    $routes->get('unsubscribes/list', '\App\Controllers\Admin\AdminController::listUnsubscribes', ['filter' => 'adminAuth']);
     $routes->get('publish-requests', '\App\Controllers\Admin\AdminController::publishRequests', ['filter' => 'adminAuth']);
     $routes->get('publish-requests/list', '\App\Controllers\Admin\AdminController::listPublishRequests', ['filter' => 'adminAuth']);
     $routes->get('contact-enquiries', '\App\Controllers\Admin\AdminController::contactEnquiries', ['filter' => 'adminAuth']);

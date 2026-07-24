@@ -42,6 +42,13 @@
         </li>
 
         <li>
+          <a href="<?php echo base_url('admin/unsubscribes'); ?>" class="waves-effect">
+            <i class="fas fa-user-minus"></i>
+            <span key="t-unsubscribes">Unsubscribes</span>
+          </a>
+        </li>
+
+        <li>
           <a href="<?php echo base_url('admin/contact-enquiries'); ?>" class="waves-effect">
             <i class="fas fa-comment-dots"></i>
             <span key="t-contact-enquiries">Contact Enquiries</span>

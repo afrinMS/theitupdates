@@ -906,6 +906,53 @@ class AdminController extends BaseController
         return view('Admin/subscribers');
     }
 
+    public function unsubscribes()
+    {
+        return view('Admin/unsubscribes');
+    }
+
+    public function listUnsubscribes()
+    {
+        if (! $this->request->isAJAX()) {
+            return $this->response->setStatusCode(405)->setBody('Method Not Allowed');
+        }
+
+        $model   = new \App\Models\UnsubscribeModel();
+        $page    = max(1, (int) ($this->request->getGet('page') ?? 1));
+        $perPage = (int) ($this->request->getGet('per_page') ?? 10);
+        $perPage = in_array($perPage, [10, 25, 50, 100], true) ? $perPage : 10;
+        $search  = trim((string) ($this->request->getGet('search') ?? ''));
+        $sort    = (string) ($this->request->getGet('sort') ?? 'created_at');
+        $order   = strtoupper((string) ($this->request->getGet('order') ?? 'DESC'));
+
+        $sort  = in_array($sort, ['id', 'email_address', 'landing_page', 'ip_address', 'created_at'], true)
+            ? $sort : 'created_at';
+        $order = in_array($order, ['ASC', 'DESC'], true) ? $order : 'DESC';
+
+        if ($search !== '') {
+            $model->groupStart()
+                ->like('email_address', $search)
+                ->orLike('landing_page', $search)
+                ->orLike('ip_address', $search)
+                ->orLike('user_agent', $search)
+                ->groupEnd();
+        }
+
+        $total = (clone $model)->countAllResults();
+        $rows  = $model->orderBy($sort, $order)
+            ->findAll($perPage, ($page - 1) * $perPage);
+
+        return $this->response->setJSON([
+            'success'     => true,
+            'data'        => $rows,
+            'page'        => $page,
+            'per_page'    => $perPage,
+            'total'       => $total,
+            'total_pages' => (int) ceil($total / max(1, $perPage)),
+            'csrf'        => csrf_hash(),
+        ]);
+    }
+
     public function publishRequests()
     {
         return view('Admin/form_requests', [
